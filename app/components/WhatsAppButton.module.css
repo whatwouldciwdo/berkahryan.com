@@ -1,0 +1,200 @@
+/* app/components/WhatsAppButton.module.css */
+
+.waContainer {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.waButton {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(72, 115, 85, 0.4);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.3s ease, 
+              box-shadow 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.waIcon {
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.pulse {
+  position: absolute;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-green);
+  opacity: 0.4;
+  z-index: 1;
+  pointer-events: none;
+  animation: waPulse 2s infinite;
+}
+
+.waBadge {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  border: 1px solid var(--color-border);
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-right: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(15px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+/* Hover States */
+.waContainer:hover .waButton {
+  transform: scale(1.08);
+  background-color: var(--color-accent);
+  box-shadow: 0 6px 20px rgba(155, 137, 113, 0.5);
+}
+
+.waContainer:hover .waIcon {
+  transform: rotate(8deg);
+}
+
+.waContainer:hover .waBadge {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Pulse color change on container hover to match accent button color */
+.waContainer:hover .pulse {
+  background-color: var(--color-accent);
+}
+
+/* Animations */
+@keyframes waPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .waContainer {
+    bottom: 24px;
+    right: 24px;
+  }
+
+  .waButton {
+    width: 50px;
+    height: 50px;
+  }
+
+  .pulse {
+    width: 50px;
+    height: 50px;
+  }
+
+  /* Hide badge on mobile devices to prevent layout issues */
+  .waBadge {
+    display: none;
+  }
+}
+
+/* Popover Menu */
+.waPopover {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 260px;
+  background-color: var(--color-bg-dark);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  animation: waPopoverSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 999;
+}
+
+@keyframes waPopoverSlide {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.waPopoverHeader {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 12px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.waPopoverBody {
+  display: flex;
+  flex-direction: column;
+}
+
+.waAdminLink {
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  color: var(--color-text-light);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.waAdminLink:last-child {
+  border-bottom: none;
+}
+
+.waAdminLink:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.waAdminName {
+  font-size: 0.95rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+  color: white;
+}
+
+.waAdminPhone {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.waBadgeHidden {
+  opacity: 0 !important;
+  transform: translateX(15px) !important;
+}
+
