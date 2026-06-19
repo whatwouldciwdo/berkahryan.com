@@ -13,8 +13,8 @@ const forkliftFleet = [
     descKey: "forkliftSec1Desc",
     image: "/images/fleet/forklift.png",
     specs: [
-      { label: "TCM", value: "5, 10 Ton" },
-      { label: "Daewoo", value: "15 Ton" },
+      { label: "TCM", value: "3, 5, 10 Ton" },
+      { label: "Daewoo / Mitsubishi", value: "15, 25, 35 Ton" },
     ]
   },
   {

@@ -13,12 +13,11 @@ const craneFleet = [
     descKey: "craneSec1Desc",
     image: "/images/fleet/telescopic_crane.png",
     specs: [
-      { brand: "Tadano", capacity: "20, 45, 80 Ton" },
-      { brand: "Sany", capacity: "25 Ton" },
+      { brand: "Tadano", capacity: "25, 80 Ton" },
+      { brand: "Sany", capacity: "25, 55 Ton" },
       { brand: "Kato", capacity: "50, 160 Ton" },
-      { brand: "Liebherr", capacity: "200 Ton" },
-      { brand: "Sumitomo", capacity: "360 Ton" },
-      { brand: "Zoomlion", capacity: "55 Ton" },
+      { brand: "Liebherr", capacity: "200, 360 Ton" },
+      { brand: "Demag", capacity: "600 Ton" },
     ]
   },
   {
@@ -27,8 +26,8 @@ const craneFleet = [
     descKey: "craneSec2Desc",
     image: "/images/fleet/terrain_crane.png",
     specs: [
-      { brand: "Tadano", capacity: "5, 7, 8 Ton" },
-      { brand: "Unic", capacity: "10, 15 Ton" },
+      { brand: "Tadano", capacity: "3, 5, 8 Ton" },
+      { brand: "Unic", capacity: "10, 16 Ton" },
     ]
   },
   {
@@ -37,11 +36,11 @@ const craneFleet = [
     descKey: "craneSec3Desc",
     image: "/images/fleet/crawler_crane.png",
     specs: [
-      { brand: "Link Belt", capacity: "50 Ton" },
+      { brand: "Link Belt", capacity: "45 Ton" },
       { brand: "Sumitomo", capacity: "60 Ton" },
       { brand: "P & H", capacity: "150 Ton" },
       { brand: "Manitowoc", capacity: "200 Ton" },
-      { brand: "Demac", capacity: "400 Ton" },
+      { brand: "Demag", capacity: "400 Ton" },
       { brand: "Kobelco", capacity: "550 Ton" },
     ]
   },
@@ -51,8 +50,8 @@ const craneFleet = [
     descKey: "craneSec4Desc",
     image: "/images/fleet/roughter_crane.png",
     specs: [
-      { brand: "Tadano", capacity: "20, 25, 50 Ton" },
-      { brand: "Kato", capacity: "45 Ton" },
+      { brand: "Tadano", capacity: "25, 50, 80 Ton" },
+      { brand: "Kato", capacity: "70, 110 Ton" },
     ]
   }
 ];

@@ -6,7 +6,8 @@ import styles from "../components/SubPage.module.css";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function ContactClient() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isId = language === "id";
 
   return (
     <PageLayout>
@@ -29,7 +30,7 @@ export default function ContactClient() {
                 <span style={{ fontSize: "1.1rem", color: "var(--color-accent)" }}>{t("contactSpecialist")}</span>
               </p>
               <p style={{ color: "#aaa", fontSize: "1rem", lineHeight: "1.6" }}>
-                Alamat Kantor:
+                {isId ? "Alamat Kantor:" : "Office Address:"}
                 <br />
                 Jalan Lada BBS II Blok A-1/14, Rt 009, Rw 006,
                 <br />

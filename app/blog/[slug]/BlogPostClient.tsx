@@ -58,7 +58,18 @@ export default function BlogPostClient({ slug }: BlogPostClientProps) {
           <div className={styles.content}>
             {post.content.split("\n\n").map((paragraph, index) => {
               if (paragraph.startsWith("### ")) {
-                return <h2 key={index}>{paragraph.replace("### ", "")}</h2>;
+                return <h3 key={index}>{paragraph.replace("### ", "")}</h3>;
+              }
+              // Handle bold text in paragraphs
+              if (paragraph.includes("**")) {
+                return (
+                  <p
+                    key={index}
+                    dangerouslySetInnerHTML={{
+                      __html: paragraph.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>"),
+                    }}
+                  />
+                );
               }
               return <p key={index}>{paragraph}</p>;
             })}

@@ -8,6 +8,11 @@
   --color-accent: #9b8971;
   --color-green: #487355;
   --color-border: rgba(255, 255, 255, 0.1);
+  
+  /* Modern Industrial Typography */
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 }
 
 * {
@@ -19,8 +24,12 @@
 body {
   background-color: var(--color-bg-dark);
   color: var(--color-text-light);
-  font-family: inherit;
+  font-family: var(--font-sans);
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
 }
 
 a {

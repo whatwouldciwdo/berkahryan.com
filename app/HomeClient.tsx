@@ -22,30 +22,45 @@ const clients = [
     name: "Pertamina",
     logo: "/images/client-logo/Pertamina_Logo.svg",
     descKey: "clientPertaminaDesc",
+    machineryImage: "/images/fleet/terrain_crane.png",
+    tags: ["CRANE", "FORKLIFT", "REFINERY"],
+    gradient: "radial-gradient(circle, rgba(237, 28, 36, 0.22) 0%, rgba(12, 12, 12, 0.95) 75%)",
   },
   {
     id: "chandra-asri",
     name: "Chandra Asri",
     logo: "/images/client-logo/chandra-asri-logo.svg",
     descKey: "clientChandraAsriDesc",
+    machineryImage: "/images/fleet/crawler_crane.png",
+    tags: ["PETROCHEMICAL", "CRAWLER", "SAFETY"],
+    gradient: "radial-gradient(circle, rgba(0, 154, 73, 0.2) 0%, rgba(12, 12, 12, 0.95) 75%)",
   },
   {
     id: "pln",
     name: "PLN Indonesia Power",
     logo: "/images/client-logo/plnip.png",
     descKey: "clientPlnDesc",
+    machineryImage: "/images/fleet/roughter_crane.png",
+    tags: ["POWER PLANT", "MAINTENANCE"],
+    gradient: "radial-gradient(circle, rgba(0, 162, 232, 0.22) 0%, rgba(12, 12, 12, 0.95) 75%)",
   },
   {
     id: "lotte",
     name: "Lotte Chemical",
     logo: "/images/client-logo/lotte-chemical.png",
     descKey: "clientLotteDesc",
+    machineryImage: "/images/fleet/telescopic_crane.png",
+    tags: ["CONSTRUCTION", "TELESCOPIC"],
+    gradient: "radial-gradient(circle, rgba(225, 0, 26, 0.16) 0%, rgba(12, 12, 12, 0.95) 75%)",
   },
   {
     id: "indorama",
     name: "Indorama",
     logo: "/images/client-logo/indorama-logo.png",
     descKey: "clientIndoramaDesc",
+    machineryImage: "/images/fleet/forklift.png",
+    tags: ["WAREHOUSE", "LOGISTICS", "STEEL"],
+    gradient: "radial-gradient(circle, rgba(0, 83, 155, 0.22) 0%, rgba(12, 12, 12, 0.95) 75%)",
   },
 ];
 
@@ -59,14 +74,14 @@ const serviceSlides = [
     image: "/images/fleet/sewa-crane-terpercaya-cilegon.webp",
     highlights: {
       id: [
-        "Telescopic Truck Mobile Crane (Kato, Tadano, Sany)",
-        "Crawler Crane Kelas Berat 50 - 550 Ton",
+        "Telescopic Mobile Crane (Kato, Tadano, Sany)",
+        "Crawler Crane Kelas Berat 45 - 550 Ton",
         "Roughter Crane untuk Medan Proyek Ekstrem",
         "Kepatuhan K3 & Operator Berlisensi SIO Aktif"
       ],
       en: [
-        "Telescopic Truck Mobile Cranes (Kato, Tadano, Sany)",
-        "Heavy-duty Crawler Cranes 50 - 550 Tons",
+        "Telescopic Mobile Cranes (Kato, Tadano, Sany)",
+        "Heavy-duty Crawler Cranes 45 - 550 Tons",
         "Roughter Cranes for Muddy & Extreme Terrains",
         "Full HSE Compliance & Licensed SIO Operators"
       ]
@@ -81,13 +96,13 @@ const serviceSlides = [
     image: "/images/fleet/forklift.png",
     highlights: {
       id: [
-        "Kapasitas Fleet Komplet 5 Ton, 10 Ton, & 15 Ton",
+        "Kapasitas Fleet Komplet 3 Ton - 35 Ton",
         "Unit Handal & Terawat (TCM, Daewoo)",
         "Skema Sewa Fleksibel (Harian, Mingguan, Bulanan)",
         "Dukungan Operator untuk Bongkar Muat Industri"
       ],
       en: [
-        "Complete Capacities: 5, 10, & 15 Tons",
+        "Complete Capacities: 3 - 35 Tons",
         "Reliable & Maintained Fleet (TCM, Daewoo)",
         "Flexible Rental Plans (Daily, Weekly, Monthly)",
         "Operator Support for Industrial Loading-Unloading"
@@ -387,8 +402,8 @@ export default function HomeClient() {
         </div>
 
 
-        {/* HISTORY SECTION */}
         <section className={styles.history}>
+          <div className={styles.techCoordinates}>[ 5.9984° S // 106.0264° E ]</div>
           <div className={`container ${styles.historyGrid}`}>
             <div className={styles.historyContent}>
               <span className={styles.historyLabel}>{t("historyLabel")}</span>
@@ -414,18 +429,18 @@ export default function HomeClient() {
                   <Image
                     src="/images/crane/sejarah-berkah-ryan-heavy-equipment.webp"
                     alt={t("historyImageAlt")}
-                    width={500}
-                    height={375}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 480px"
                     className={styles.historyImage}
                   />
                 </div>
                 <div className={styles.historyBadge}>
-                  <span className={styles.historyBadgeNumber}>
-                    {language === "id" ? "3+ Tahun" : "3+ Years"}
-                  </span>
-                  <span className={styles.historyBadgeLabel}>
-                    {language === "id" ? "Pengalaman" : "Experience"}
-                  </span>
+                  <div className={styles.historyBadgeNumber}>3+</div>
+                  <div className={styles.historyBadgeDivider}></div>
+                  <div className={styles.historyBadgeLabel}>
+                    <span>{language === "id" ? "TAHUN" : "YEARS OF"}</span>
+                    <span>{language === "id" ? "PENGALAMAN" : "EXPERIENCE"}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -465,8 +480,8 @@ export default function HomeClient() {
           </div>
         </section>
 
-        {/* SERVICES SECTION */}
         <section className={styles.servicesSection}>
+          <div className={styles.techCoordinates}>[ 5.9984° S // 106.0264° E ]</div>
           <div className="container">
             <div className={styles.servicesHeader}>
               <h2 className={styles.servicesTitle}>{t("homeServicesTitle")}</h2>
@@ -501,8 +516,20 @@ export default function HomeClient() {
 
               {/* Right Side: Frosted Glass details Card */}
               <div className={styles.carouselCard}>
+                {/* Watermark Logo */}
+                <Image
+                  src="/berkahryan-logo.svg"
+                  alt="Watermark Logo"
+                  width={300}
+                  height={300}
+                  className={styles.cardWatermark}
+                  priority
+                />
+
                 <div className={styles.carouselCardHeader}>
-                  <span className={styles.carouselCardNum}>0{serviceSlides[activeSlide].id}</span>
+                  <div className={styles.carouselCardNumWrapper}>
+                    <span className={styles.carouselCardNum}>0{serviceSlides[activeSlide].id}</span>
+                  </div>
                   <h3 className={styles.carouselCardTitle}>
                     {t(serviceSlides[activeSlide].titleKey)}
                   </h3>
@@ -607,23 +634,66 @@ export default function HomeClient() {
 
             {/* Client Cards Grid */}
             <div className={styles.clientsGrid}>
-              {clients.map((client) => (
-                <div key={client.id} className="client-card-wrapper">
-                  <div className={styles.clientCard}>
-                    <div className={styles.clientCardLogoWrapper}>
-                      <Image
-                        src={client.logo}
-                        alt={`${client.name} Logo`}
-                        fill
-                        sizes="130px"
-                        className={styles.clientCardLogo}
-                      />
+              {clients.map((client, idx) => {
+                const cardClass = `${styles.clientCard} ${styles[`clientCard_${client.id}`] || ""}`;
+                const formattedIndex = String(idx + 1).padStart(2, "0");
+                const techCode = client.id.replace("-", "").substring(0, 4).toUpperCase();
+                return (
+                  <div key={client.id} className={styles.clientCardWrapper}>
+                    <div className={cardClass}>
+                      {/* Top Bar: pills + arrow */}
+                      <div className={styles.cardHeaderBar}>
+                        <div className={styles.cardHeaderPills}>
+                          {client.tags.map((tag) => (
+                            <span key={tag} className={styles.cardHeaderPill}>
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                        <div className={styles.cardArrowLink}>
+                          <span>→</span>
+                        </div>
+                      </div>
+
+                      {/* Center Stadium Image Mask */}
+                      <div 
+                        className={styles.stadiumWrapper}
+                        style={{ background: client.gradient }}
+                      >
+                        <div className={styles.stadiumImageContainer}>
+                          <Image
+                            src={client.machineryImage}
+                            alt={`${client.name} Deployed Equipment`}
+                            fill
+                            sizes="(max-width: 768px) 100vw, 300px"
+                            className={styles.stadiumImage}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Info section */}
+                      <h3 className={styles.clientCardTitle}>{client.name}</h3>
+                      <p className={styles.clientCardDesc}>{t(client.descKey)}</p>
+
+                      {/* Bottom Footer Metadata Split */}
+                      <div className={styles.cardFooterBar}>
+                        <div className={styles.cardFooterIndex}>
+                          [ ID: BR-{formattedIndex} // {techCode} ]
+                        </div>
+                        <div className={styles.cardFooterLogoWrapper}>
+                          <Image
+                            src={client.logo}
+                            alt={`${client.name} Logo`}
+                            fill
+                            sizes="90px"
+                            className={styles.cardFooterLogo}
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <h3 className={styles.clientCardTitle}>{client.name}</h3>
-                    <p className={styles.clientCardDesc}>{t(client.descKey)}</p>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

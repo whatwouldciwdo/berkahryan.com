@@ -210,175 +210,35 @@
 
 .ctaContainer {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 60px;
+  justify-content: center;
+  text-align: center;
   margin-bottom: 150px;
 }
 
-.ctaMechanicalWidget {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  width: 160px;
-  height: 160px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.ctaMechanicalWidget:hover {
-  transform: scale(1.08) rotate(5deg);
-}
-
-.hudSvg {
-  overflow: visible;
-  width: 100%;
-  height: 100%;
-}
-
-/* Outer rotating dashed ring */
-.hudOuterRing {
-  fill: none;
-  stroke: var(--color-accent);
-  stroke-width: 1.5;
-  stroke-dasharray: 6 6;
-  opacity: 0.6;
-  transform-origin: center;
-  animation: spinClockwise 24s linear infinite;
-}
-
-/* Middle static tick ring */
-.hudMiddleRing {
-  fill: none;
-  stroke: var(--color-text-dark);
-  stroke-width: 1;
-  stroke-dasharray: 80 8 10 8;
-  opacity: 0.3;
-  transform-origin: center;
-  animation: spinCounterClockwise 40s linear infinite;
-}
-
-.hudTick {
-  stroke: var(--color-text-dark);
-  stroke-width: 1.5;
-  opacity: 0.5;
-}
-
-.hudTickSub {
-  stroke: var(--color-accent);
-  stroke-width: 1;
-  opacity: 0.4;
-}
-
-/* Gear teeth container */
-.hudGear {
-  fill: none;
-  stroke: var(--color-text-dark);
-  stroke-width: 1.5;
-  opacity: 0.7;
-  transform-origin: center;
-  animation: spinCounterClockwise 16s linear infinite;
-  transition: stroke 0.3s ease;
-}
-
-.ctaMechanicalWidget:hover .hudGear {
-  stroke: var(--color-accent);
-  animation-duration: 8s;
-}
-
-/* Center icon (Crane Hook) */
-.hudCenterIcon {
-  fill: none;
-  stroke: var(--color-text-dark);
-  stroke-width: 2.5;
-  transition: all 0.3s ease;
-}
-
-.ctaMechanicalWidget:hover .hudCenterIcon {
-  stroke: var(--color-accent);
-  filter: drop-shadow(0 0 4px rgba(155, 137, 113, 0.4));
-}
-
-/* Status dots */
-.hudStatusDot {
-  fill: #22c55e;
-}
-
-.hudStatusRing {
-  fill: none;
-  stroke: #22c55e;
-  stroke-width: 1;
-  opacity: 0.5;
-  transform-origin: 120px 120px;
-  animation: radarPulse 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
-}
-
-/* Technical text */
-.hudText {
-  fill: var(--color-text-dark);
-  font-size: 7px;
-  font-family: monospace;
-  font-weight: 600;
-  letter-spacing: 1px;
-  opacity: 0.4;
-  user-select: none;
-}
-
-.hudTextRotated {
-  fill: var(--color-accent);
-  font-size: 6px;
-  font-family: monospace;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  opacity: 0.5;
-  user-select: none;
-  transform: rotate(-90deg);
-  transform-origin: 25px 85px;
-}
-
-@keyframes spinClockwise {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes spinCounterClockwise {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-@keyframes radarPulse {
-  0% {
-    transform: scale(0.5);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(2.2);
-    opacity: 0;
-  }
-}
-
-
 .ctaTitle {
-  font-size: 5.5rem;
+  font-size: 5rem;
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.2;
   letter-spacing: -2px;
+  font-family: var(--font-heading);
+  color: var(--color-text-dark);
 }
 
 .ctaTitle span {
-  display: block;
-  border-bottom: 2px solid var(--color-text-dark);
-  padding-bottom: 10px;
-  width: max-content;
+  display: inline-block;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-accent);
+  padding-bottom: 4px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.ctaTitle span:hover {
+  color: var(--color-text-dark);
+  border-bottom-color: var(--color-text-dark);
+  transform: translateY(-2px);
 }
 
 .footerLinks {
@@ -616,9 +476,6 @@
   }
 
   .ctaContainer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 30px;
     margin-bottom: 80px;
   }
 
@@ -688,10 +545,7 @@
     font-size: 2.2rem;
   }
 
-  .ctaMechanicalWidget {
-    width: 120px;
-    height: 120px;
-  }
+
 
   .footerPartners {
     grid-template-columns: 1fr;
